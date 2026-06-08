@@ -1,109 +1,114 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>醫療臨床輔助工具集</title>
-    <style>
-        :root {
-            /* 調整為更具臨床專業感的配色 */
-            --primary-color: #2b4c65;    /* 專業深海藍：穩重、臨床感 */
-            --accent-color: #1abc9c;     /* 醫療湖水綠：清晰、防護感 */
-            --bg-color: #f4f7f9;
-        }
-        body {
-            /* 統一中英文字體，確保在各裝置上粗細與風格一致 */
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Microsoft JhengHei", Arial, sans-serif;
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .container {
-            text-align: center;
-            background: white;
-            padding: 2.5rem;
-            border-radius: 16px; /* 稍微增加圓角，提升現代感 */
-            box-shadow: 0 10px 30px rgba(43, 76, 101, 0.08); /* 讓陰影更柔和 */
-            max-width: 500px;
-            width: 90%;
-        }
-        h1 {
-            color: #1a2a3a;
-            margin-bottom: 0.6rem;
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-        .subtitle {
-            color: #7f8c8d;
-            margin-bottom: 2.5rem;
-            font-size: 1rem;
-            letter-spacing: 0.5px;
-        }
-        .links-group {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-        /* 統一按鈕基礎樣式 */
-        .tool-btn {
-            display: block;
-            padding: 1.2rem;
-            color: white !important; /* 強制文字為白色 */
-            background-color: var(--primary-color);
-            text-decoration: none !important; /* 徹底移除底線 */
-            border-radius: 12px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 12px rgba(43, 76, 101, 0.15);
-            letter-spacing: 0.5px;
-        }
-        /* 第二個高血脂按鈕套用湖水綠 */
-        .tool-btn.lipid {
-            background-color: var(--accent-color);
-            box-shadow: 0 4px 12px rgba(26, 188, 156, 0.2);
-        }
-        /* 滑鼠懸停動畫：微幅上浮、加深陰影 */
-        .tool-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-            opacity: 0.95;
-        }
-        /* 按下時的微幅反饋 */
-        .tool-btn:active {
-            transform: translateY(-1px);
-        }
-        footer {
-            margin-top: 2.5rem;
-            font-size: 0.85rem;
-            color: #b2bec3;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>臨床工具導覽</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .site-title {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #111;
+  }
+
+  .divider {
+    width: 32px;
+    height: 2px;
+    background: #111;
+    margin: 14px auto 0;
+  }
+
+  /* Grid */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 220px);
+    gap: 16px;
+  }
+
+  @media (max-width: 500px) {
+    .grid { grid-template-columns: 1fr; width: 100%; max-width: 280px; }
+  }
+
+  /* Card */
+  a.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 22px 16px;
+    border: 1.5px solid #1a1a1a;
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    background: #fff;
+    transition: background 0.18s, color 0.18s;
+    cursor: pointer;
+  }
+
+  a.card:hover {
+    background: #1a1a1a;
+    color: #fff;
+  }
+
+  footer {
+    margin-top: 48px;
+    font-size: 11px;
+    color: #bbb;
+    letter-spacing: 0.1em;
+    text-align: center;
+  }
+</style>
 </head>
 <body>
 
-<div class="container">
-    <h1>臨床輔助工具系統</h1>
-    <div class="subtitle">請選擇欲使用的醫療評估或資訊工具</div>
-    
-    <div class="links-group">
-        <a href="https://international9901149-hash.github.io/Admission_Note/" class="tool-btn" target="_blank">
-            📋 住院病摘與交班單
-        </a>
-        
-        <a href="https://international9901149-hash.github.io/lipidemia-risk-calculator/" class="tool-btn lipid" target="_blank">
-            🩺 高血脂風險評估與治療
-        </a>
-    </div>
+<header>
+  <p class="site-title">Clinical Tools</p>
+  <h1>臨床工具導覽</h1>
+  <div class="divider"></div>
+</header>
 
-    <footer>
-        <p>© 2026 醫療資訊工具集</p>
-    </footer>
+<div class="grid">
+  <a class="card" href="https://international9901149-hash.github.io/Admission_Note/" target="_blank">住院病歷紀錄</a>
+  <a class="card" href="https://international9901149-hash.github.io/Afib_NOAC_Evaluation/" target="_blank">Afib 抗凝劑評估</a>
+  <a class="card" href="https://international9901149-hash.github.io/NIHSS/" target="_blank">NIHSS</a>
+  <a class="card" href="https://international9901149-hash.github.io/lipidemia-risk-calculator/" target="_blank">高血脂評估與治療</a>
+  <a class="card" href="https://international9901149-hash.github.io/Dyspnea_Evaluation/" target="_blank">呼吸困難評估<br><span style="font-size:12px;font-weight:400;opacity:0.6;">mMRC・ACT・CAT・NYHA</span></a>
 </div>
+
+<footer>Taichung Veterans General Hospital &nbsp;·&nbsp; Internal Medicine / Pulmonology</footer>
 
 </body>
 </html>
